@@ -6,6 +6,8 @@ __pycache__/
 scancode_report.json
 semgrep_output.json
 
+sigscan.egg-info/*
+sigscan.egg-info/
 user_project/
 logs/
 project_run/RGM_econ_pyfiles/
