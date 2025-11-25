@@ -196,8 +196,8 @@ class ComplianceAnalyzer(ComplianceAnalyzer):
                     "--quiet",
                 ],
                 check=True,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
+                text=True,
+                capture_output=True,
             )
         except subprocess.CalledProcessError as e:
             traceback.print_exc()
