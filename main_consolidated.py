@@ -6,6 +6,7 @@ Unified interface for all code analysis modules.
 # Flake8: noqa: E501
 
 import streamlit as st
+import sys
 import asyncio
 import os
 import logging
@@ -1680,6 +1681,8 @@ def show_main_app():
 
 def main():
     """Main application entry point."""
+    logger.info("=== SIGSCAN TOOL START ===")
+    logger.info("Python version: %s", sys.version)
     params = st.query_params
     view = params.get("view", "")
     if view == "logs":
