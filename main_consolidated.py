@@ -405,10 +405,10 @@ class ConsolidatedCodeReviewApp:
                             color = "yellow"
                         else:
                             color = "light_blue"
-                        current_stage = colored(
-                            f"[{stage.title()}]", color, attrs=["bold"]
+                        current_stage = colored(f"{stage.title()}", color)
+                        logger.info(
+                            f"{current_stage} : {completed['n']}/{total_analyzers}"
                         )
-                        print(f"{current_stage} : {completed['n']}/{total_analyzers}")
 
                 return _cb
 
@@ -1681,8 +1681,6 @@ def show_main_app():
 
 def main():
     """Main application entry point."""
-    logger.info("=== SIGSCAN TOOL START ===")
-    logger.info("Python version: %s", sys.version)
     params = st.query_params
     view = params.get("view", "")
     if view == "logs":
