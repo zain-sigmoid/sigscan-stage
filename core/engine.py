@@ -8,6 +8,7 @@ import asyncio
 import time
 import logging
 import traceback
+from termcolor import colored
 from typing import List, Dict, Any, Optional
 
 from .models import (
@@ -71,7 +72,9 @@ class UnifiedAnalysisEngine:
             logger.info(
                 f"Running {len(analyzers)} analyzers: {[a.get_name() for a in analyzers]}"
             )
-            logger.info(f"Parallel Execution:{config.parallel_execution}")
+            parallel_color = "green" if config.parallel_execution == True else "red"
+            parallel_status = colored(config.parallel_execution, parallel_color)
+            logger.info(f"Parallel Execution: {parallel_status}")
             # Run analysis modules
             if config.parallel_execution:
                 analysis_results = await self._run_parallel_analysis(
